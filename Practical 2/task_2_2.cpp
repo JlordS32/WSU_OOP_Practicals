@@ -16,8 +16,28 @@ using namespace std;
     remainder = numerator % denominator;
  */
 
+
+void calculate(int &qoutient, int &remainder, int numerator, int denominator);
+
 int main()
 {
+    int numerator, denominator, qoutient, remainder;
+
+    cout << "Enter numerator: ";
+    cin >> numerator;
+    cout << "Enter denominator: ";
+    cin >> denominator;
+
+    calculate(qoutient, remainder, numerator, denominator);
+
+    // Output
+    cout << "Quotient: " << qoutient << endl;
+    cout << "Remainder: " << remainder << endl;
 
     return 0;
+}
+
+void calculate(int &qoutient, int &remainder, int numerator, int denominator) {
+    qoutient = numerator / denominator;
+    remainder = numerator % denominator;
 }
