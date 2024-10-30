@@ -2,8 +2,8 @@
 
 using namespace std;
 
-/*
-    Task 1.4:
+/*  Task 1.4:
+    
     Write a nested for loop that prints out a multiplication table for the integers 1 through
     10.
 */

@@ -1,6 +1,7 @@
 #include <iostream>
 
-/*
+/*  Task 1.3
+
     Write a program that includes two functions. The first function asks the user to input a
     value in double that represents the dollar value of daily sales of a salesperson. The
     function should return that value as function return. The second function takes the
