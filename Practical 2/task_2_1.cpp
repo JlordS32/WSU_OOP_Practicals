@@ -2,7 +2,8 @@
 
 using namespace std;
 
-/*
+/*  Task 2.1
+
     Given the following function definition:
 
         void testDefaultArg(int day = 1, string month= "Jan",
