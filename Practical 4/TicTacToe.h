@@ -8,6 +8,9 @@
 #ifndef TICTACTOE_H_
 #define TICTACTOE_H_
 
+#include <ctime>
+#include <cstdlib>
+
 const int BOARDSIZE = 3;
 
 class TicTacToe
@@ -19,7 +22,8 @@ private:
 public:
 	TicTacToe();
 	bool isValidMove(int, int);
-	bool getXOMove(int &, int &);
+	void getOMove(int &, int &);
+	void getXMove(int &, int &);
 	void addMove(int, int, int);
 	int gameStatus();
 	int play();
@@ -32,6 +36,7 @@ TicTacToe::TicTacToe()
 		for (int col = 0; col < 3; col++)
 			board[row][col] = 0;
 
+	srand(time(0));
 	noOfMoves = 0;
 }
 
@@ -71,12 +76,21 @@ bool TicTacToe::isValidMove(int x, int y)
     return isValid;
 }
 
-bool TicTacToe::getXOMove(int &x, int &y)
+void TicTacToe::getOMove(int &x, int &y)
 { // What does & mean?
+	int row, col;
+	
+	do {
+		row = rand() % 3;
+		col = rand() % 3;
+	} while (!isValidMove(row, col));
 
-	if (noOfMoves >= 9)
-		return false;
+	x = row;
+	y = col;
+}
 
+void TicTacToe::getXMove(int &x, int &y)
+{ // What does & mean?
 	int row, col;
 	do
 	{
@@ -85,8 +99,6 @@ bool TicTacToe::getXOMove(int &x, int &y)
 	} while (!isValidMove(row - 1, col - 1));
 	x = row - 1;
 	y = col - 1;
-
-	return true;
 }
 
 void TicTacToe::addMove(int x, int y, int player)
@@ -138,7 +150,11 @@ int TicTacToe::play()
 		cout << "Player " << playerSymbol << " enter move: ";
 		int x, y;
 
-		getXOMove(x, y);
+		if (player == 1) {
+			getXMove(x, y);
+		} else {
+			getOMove(x, y);
+		}
 
 		addMove(x, y, player);
 		noOfMoves++;
